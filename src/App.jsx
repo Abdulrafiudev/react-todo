@@ -30,8 +30,26 @@ function App() {
     
     set_input_text("")
   }
+
+  function delete_todo(id){
+
+    console.log(id)
+
+    set_todo_items((prev_item) => {
+      return(
+        prev_item.filter((item, index) => {
+          return index !== id
+        })
+      )
+       
+    })
+    
+  }
+
+
+
   return (
-    <Todo change = {handle_change} add = {add_todo} items = {todo_items} name = {input_text}/>
+    <Todo change = {handle_change} add = {add_todo} items = {todo_items} name = {input_text} delete = {delete_todo}/>
   )
 }
 

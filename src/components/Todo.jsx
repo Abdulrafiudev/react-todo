@@ -1,6 +1,7 @@
 import React from "react";
 import "../../public/styles.css"
 import List from "./list";
+import Input_Area from "./input";
 
 
 function Todo(props){
@@ -10,17 +11,12 @@ function Todo(props){
           <div className="heading">
             <h1>To-Do List</h1>
           </div>
-          <div className="form">
-            <input type="text" onChange={props.change} value={props.name}/>
-            <button onClick={props.add}>
-              <span>Add</span>
-            </button>
-          </div>
+          <Input_Area change = {props.change} name = {props.name} add = {props.add}/>
           <div>
             <ul>
               {props.items.map((item, index) => {
                 return(
-                  <List items = {item} key = {index} />
+                  <List items = {item} key = {index} id = {index} delete = {props.delete}/>
                 )
               })}
               
